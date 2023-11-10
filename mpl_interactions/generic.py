@@ -691,11 +691,7 @@ class image_segmenter_overlayed:
         self.displayed = self.ax.imshow(
             self.second_img, alpha=second_img_alpha, extent=second_img_extent, cmap=second_img_cmap
         )
-        if second_img_extent:
-            self.ax.set_xlim([img_extent[0],img_extent[1]])
-            self.ax.set_ylim([img_extent[2], img_extent[3]])
-        else:
-            pass
+
         self._mask = self.ax.imshow(self._overlay)
 
         default_props = {"color": "black", "linewidth": 1, "alpha": 0.8}
