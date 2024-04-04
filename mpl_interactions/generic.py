@@ -586,6 +586,8 @@ class image_segmenter_overlayed:
         second_img_extent=None,
         second_img_alpha=0.2,
         second_img_cmap="viridis",
+        second_img_vmin= None ,
+        second_img_vmax=None,
         nclasses=1,
         mask=None,
         mask_colors=None,
@@ -689,7 +691,7 @@ class image_segmenter_overlayed:
         self.displayed = self.ax.imshow(self._img, extent=img_extent, **kwargs)
         # plot the secondary image over the primary
         self.displayed = self.ax.imshow(
-            self.second_img, alpha=second_img_alpha, extent=second_img_extent, cmap=second_img_cmap
+            self.second_img, alpha=second_img_alpha, extent=second_img_extent, cmap=second_img_cmap,vmin=second_img_vmin,vmax=second_img_vmax
         )
 
         self._mask = self.ax.imshow(self._overlay)
