@@ -622,6 +622,10 @@ class image_segmenter_overlayed:
             transparency of secondary image, by default 0.2
         second_img_cmap : str, optional
             colormap of secondary image, by default 'viridis'
+        second_img_vmin : float, optional
+            colormap minimum value of secondary image
+        second_img_vmax : float, optional
+            colormap maximum value of secondary image
         mask : arraylike, optional
             If you want to pre-seed the mask
         mask_colors : None, color, or array of colors, optional
@@ -693,6 +697,9 @@ class image_segmenter_overlayed:
         self.displayed = self.ax.imshow(
             self.second_img, alpha=second_img_alpha, extent=second_img_extent, cmap=second_img_cmap,vmin=second_img_vmin,vmax=second_img_vmax
         )
+        # setting image extents correctly
+        # self.ax.set_xlim([img_extent[0],img_extent[1]])
+        # self.ax.set_ylim([img_extent[2], img_extent[3]])
 
         self._mask = self.ax.imshow(self._overlay)
 
